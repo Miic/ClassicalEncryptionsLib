@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import javafx.scene.shape.Path;
+
 public class PlayfairCipher implements CEncryption {
 
 	private String key;
@@ -52,6 +54,12 @@ public class PlayfairCipher implements CEncryption {
 		String result = sb.toString();
 		//result = result.replaceAll("x", "");
 		
+		System.out.println();
+		for(int i = 0; i < array.length; i++) {
+			System.out.println(Arrays.toString(array[i]));
+		}
+		System.out.println();
+		
 		return result;
 	}
 
@@ -89,6 +97,9 @@ public class PlayfairCipher implements CEncryption {
 		}
 		
 		String result = sb.toString();
+		while (result.endsWith("x") || result.endsWith(array[0][0] + "")) {
+			result = result.substring(0, result.length() - 1);
+		}
 		result = result.replaceAll("x", "");
 		
 		return result;
